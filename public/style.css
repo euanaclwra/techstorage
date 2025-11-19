@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+}
+
+body {
+    font-family: "Montserrat";
+    color: #1b1b1b;
+    background: #F2F2F2;
+    background: linear-gradient(336deg,rgba(242, 242, 242, 1) 0%, rgba(255, 255, 255, 1) 100%);    
+}
+
+.navbar {
+    padding: 2rem;
+    justify-content: space-evenly;
+}
+
+.nav-menu {
+    list-style-type: none;
+    gap: 2rem;
+    align-items: center;    
+}
+
+.nav-item a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1b1b1b;
+    font-size: 0.9em;
+    transition: color 0.1s ease-in;
+}
+
+.nav-item a:hover {
+    color: #1993de;
+}
+
+.nav-divider {
+    color: #1993de;
+    font-size: 1.5em;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.main {
+    padding: 1.5rem;
+}
+
+.page-title {
+    color: #1993de;  
+    margin-bottom: 0.5rem;  
+}
+
+.page-title::before {
+    display: block;
+    width: 100%;
+    content: '';
+    border-top: solid gainsboro 1px;
+    margin-bottom: 0.5rem;
+}
+
+.btn-blue {
+    background-color: transparent;
+    border: solid #1993de 2px;
+    color: #1993de;
+    font-family: "Montserrat";
+    font-weight: 600;
+    padding: 0.7rem;
+    width: 8%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+.btn-blue:hover {
+    background-color: #1993de;
+    color: white;
+}
