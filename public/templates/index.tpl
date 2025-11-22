@@ -1,0 +1,45 @@
+{include file="header.tpl"}
+
+<section class="main">
+    <div class="box">
+        <h1 class="page-title">
+            Estoque
+        </h1>
+        <a href="cadastro.php">
+            <button class="btn-blue">
+                + Novo Produto
+            </button>            
+        </a>
+    </div>
+
+    <br>
+
+    <table class="table table-striped table-borderless">
+        <thead>
+            <tr>
+                <th class="table-header">
+                    Código
+                </th>
+                <th class="table-header">
+                    Nome
+                </th>
+                <th class="table-header">
+                    Custo (R$)
+                </th>
+                <th class="table-header">
+                    Qtd.
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach $produtos as $produto}
+                <tr>
+                    <td>{$produto->getCodigoBarras()}</td>
+                    <td>{$produto->getNome()}</td>
+                    <td>{number_format($produto->getCustoReposicao(), 2, ',', '.')}</td>
+                    <td>{$produto->getQtdEstoque()}</td>
+                </tr>
+            {/foreach}
+        </tbody>            
+    </table>
+</section>

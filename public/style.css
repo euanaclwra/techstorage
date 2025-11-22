@@ -11,15 +11,13 @@ body {
     background: linear-gradient(336deg,rgba(242, 242, 242, 1) 0%, rgba(255, 255, 255, 1) 100%);    
 }
 
-.navbar {
-    padding: 2rem;
-    justify-content: space-evenly;
+hr {
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
-.nav-menu {
-    list-style-type: none;
+.navbar-nav {
     gap: 2rem;
-    align-items: center;    
 }
 
 .nav-item a {
@@ -34,46 +32,81 @@ body {
     color: #1993de;
 }
 
-.nav-divider {
-    color: #1993de;
-    font-size: 1.5em;
-}
-
-.flex-container {
-    display: flex;
-}
-
 .main {
     padding: 1.5rem;
 }
 
 .page-title {
-    color: #1993de;  
-    margin-bottom: 0.5rem;  
-}
-
-.page-title::before {
-    display: block;
-    width: 100%;
-    content: '';
-    border-top: solid gainsboro 1px;
-    margin-bottom: 0.5rem;
+    color: #1b3f99;  
+    margin-bottom: 0.5rem; 
+    font-weight: 600; 
+    font-size: 2em;
 }
 
 .btn-blue {
-    background-color: transparent;
-    border: solid #1993de 2px;
-    color: #1993de;
+    border: solid transparent 2px;
+    background-color: #1b3f99;
+    color: white;
     font-family: "Montserrat";
     font-weight: 600;
     padding: 0.7rem;
-    width: 8%;
+    width: 100%;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.1s ease-in;
 }
 
-.btn-blue:hover {
-    background-color: #1993de;
-    color: white;
+.btn-blue:hover {    
+    background-color: transparent;
+    border: solid #1b3f99 2px;
+    color: #1b3f99;
+}
+
+.btn-blue:active, .btn-blue:focus {
+    outline: none;
+}
+
+.box {
+    width: fit-content;
+}
+
+label {
+    display: block;
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid #1993de 1px;    
+}
+
+.form-control:focus {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+.link-icon {
+    color: #1993de;
+    transition: all 0.1s ease-in;
+}
+
+.link-icon:hover {
+    text-decoration: none;
+}
+
+.link-icon svg {
+    height: 1rem;
+    width: auto;
+    margin-bottom: 4px;
+}
+
+.table-header {
+    font-weight: 600;
+    border-bottom: solid #1993de 1px !important; 
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: #1993de;
 }

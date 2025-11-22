@@ -1,6 +1,8 @@
 <?php
 class Produto {
     // Atributos
+    private $id;
+    private $pdo;
     private $nome;
     private $codigoBarras;
     private $qtdEstoque;
@@ -8,6 +10,22 @@ class Produto {
     private $descricao;
 
     // Getters e Setters
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function getPDO() {
+        return $this->pdo;
+    }
+
+    public function setPDO($pdo) {
+        $this->id = $pdo;
+    }
+
     public function getNome() {
         return $this->nome;
     }
@@ -49,12 +67,68 @@ class Produto {
     }
 
     // Construtor
-    public function __construct($nome, $codigoBarras, $qtdEstoque, $custoReposicao, $descricao) {
+    public function __construct($id = null, $pdo, $nome, $qtdEstoque, $codigoBarras, $custoReposicao, $descricao) {
+        $this->id = $id;
+        $this->pdo = $pdo;
         $this->nome = $nome;
-        $this->codigoBarras = $codigoBarras;
         $this->qtdEstoque = $qtdEstoque;
+        $this->codigoBarras = $codigoBarras;        
         $this->custoReposicao = $custoReposicao;
-        $this->descricao = $descricao;
+        $this->descricao = $descricao;        
     }
+
+    // CRUD
+    public function salvar(): int {
+        // Se o objeto já tiver um ID, ele é atualizado
+        if ($this->id <> null) {
+            $sql = "UPDATE produtos SET nome = :nome, codigobarras = :codigobarras, qtdestoque = :qtdestoque, custoreposicao = :custoreposicao, descricao = :descricao WHERE id = :id";
+            $params = [
+                'nome' => $this->getNome(),
+                'codigobarras' => $this->getCodigoBarras(),
+                'qtdestoque' => $this->getQtdEstoque(),
+                'custoreposicao' => $this->getCustoReposicao(),
+                'descricao' => $this->getDescricao(),
+                'id' => $this->getId()
+            ];
+            $this->pdo->prepare($sql)->execute($params);
+            return $this->id;  
+        // Caso contrário, ele é inserido               
+        } else {
+            $sql = "INSERT INTO produtos (nome, codigobarras, qtdestoque, custoreposicao, descricao) VALUES (:nome, :codigobarras, :qtdestoque, :custoreposicao, :descricao)";
+            $params = [
+                'nome' => $this->getNome(),
+                'codigobarras' => $this->getCodigoBarras(),
+                'qtdestoque' => $this->getQtdEstoque(),
+                'custoreposicao' => $this->getCustoReposicao(),
+                'descricao' => $this->getDescricao()
+            ];
+            $this->pdo->prepare($sql)->execute($params);
+
+            $this->id = $this->pdo->lastInsertId();
+            return $this->id;
+        }
+    }
+
+    public static function buscar(PDO $pdo): array {
+        $sql = "SELECT * FROM produtos";
+        $stmt = $pdo->query($sql);
+
+        $listaProdutos = [];
+
+        while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $listaProdutos[] = new Produto(
+                $dados['id'],
+                $pdo, 
+                $dados['nome'],
+                $dados['qtdestoque'],
+                $dados['codigobarras'],
+                $dados['custoreposicao'],
+                $dados['descricao']
+            );
+        }
+
+        return $listaProdutos;   
+    }
+
 }
 ?>

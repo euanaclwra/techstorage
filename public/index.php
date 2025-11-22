@@ -1,10 +1,11 @@
-<?php require_once "../views/header.php"; ?>
+<?php
+require_once 'Smarty.class.php';
+require_once '../src/models/Produto.php';
 
-<section class="main">
-    <h1 class="page-title">
-        Produtos
-    </h1>
-    <button class="btn-blue">
-        + Inserir
-    </button>
-</section>
+$pdo = require_once '../config/connection.php';
+$smarty = new Smarty\Smarty();
+$listaProdutos = Produto::buscar($pdo);
+
+$smarty->assign('produtos', $listaProdutos);
+$smarty->display('index.tpl');
+?>
