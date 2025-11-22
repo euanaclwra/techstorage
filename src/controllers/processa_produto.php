@@ -26,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($codigo === "" || strlen($codigo) < 8 || strlen($codigo) > 14) {
         $erros[] = "O código de barras precisa ter entre 8 e 14 caracteres.";
     }
+    if (Produto::codigoBarrasExiste($pdo, $codigo)) {
+        $erros[] = "Já existe um produto cadastrado com esse código de barras.";
+    }
 
     // Se houver algum erro, retorna pro form
     if (!empty($erros)) {

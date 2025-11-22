@@ -141,5 +141,16 @@ class Produto {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);     
     }
+
+    public static function codigoBarrasExiste(PDO $pdo, $codigo) {
+        $sql = "SELECT COUNT(*) FROM produtos WHERE codigobarras = :codigo";
+        $params = [
+            'codigo' => $codigo
+        ];
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+
+        return $stmt->fetchColumn() > 0;
+    }
 }
 ?>
