@@ -1,6 +1,6 @@
 <?php
 class Produto {
-    // Atributos
+    # Atributos
     private $id;
     private $pdo;
     private $nome;
@@ -9,64 +9,36 @@ class Produto {
     private $custoReposicao;
     private $descricao;
 
-    // Getters e Setters
+    # Getters
     public function getId() {
         return $this->id;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
     }
 
     public function getPDO() {
         return $this->pdo;
     }
 
-    public function setPDO($pdo) {
-        $this->id = $pdo;
-    }
-
     public function getNome() {
         return $this->nome;
-    }
-
-    public function setNome($nome) {
-        $this->nome = $nome;
     }
 
     public function getCodigoBarras() {
         return $this->codigoBarras;
     }
 
-    public function setCodigoBarras($codigoBarras) {
-        $this->codigoBarras = $codigoBarras;
-    }
-
     public function getQtdEstoque() {
         return $this->qtdEstoque;
-    }
-
-    public function setQtdEstoque($qtdEstoque) {
-        $this->qtdEstoque = $qtdEstoque;
     }
 
     public function getCustoReposicao() {
         return $this->custoReposicao;
     }
 
-    public function setCustoReposicao($custoReposicao) {
-        $this->custoReposicao = $custoReposicao;
-    }
-
     public function getDescricao() {
         return $this->descricao;
     }
 
-    public function setDescricao($descricao) {
-        $this->descricao = $descricao;
-    }
-
-    // Construtor
+    # Construtor
     public function __construct($id = null, $pdo = null, $nome = null, $qtdEstoque = null, $codigoBarras = null, $custoReposicao = null, $descricao = null) {
         $this->id = $id;
         $this->pdo = $pdo;
@@ -77,9 +49,10 @@ class Produto {
         $this->descricao = $descricao;        
     }
 
-    // CRUD
+    # CRUD
     public function salvar(): int {
-        // Se o objeto já tiver um ID, ele é atualizado
+        # Se o objeto já tiver um ID, ele é atualizado
+        # UPDATE
         if ($this->id <> null) {
             $sql = "UPDATE produtos SET nome = :nome, codigobarras = :codigobarras, qtdestoque = :qtdestoque, custoreposicao = :custoreposicao, descricao = :descricao WHERE id = :id";
             $params = [
@@ -94,7 +67,8 @@ class Produto {
             $stmt->execute($params);
             
             return $this->id;  
-        // Caso contrário, ele é inserido              
+        # Caso contrário, ele é inserido     
+        # CREATE         
         } else {
             $sql = "INSERT INTO produtos (nome, codigobarras, qtdestoque, custoreposicao, descricao) VALUES (:nome, :codigobarras, :qtdestoque, :custoreposicao, :descricao)";
             $params = [
@@ -112,6 +86,7 @@ class Produto {
         }
     }
 
+    # READ
     public static function buscar(PDO $pdo): array {
         $sql = "SELECT * FROM produtos";
         $stmt = $pdo->query($sql);
@@ -133,6 +108,7 @@ class Produto {
         return $listaProdutos;   
     }
 
+    # DELETE
     public function excluir() {
         $sql = "DELETE FROM produtos WHERE id = :id";
         $params = [
@@ -142,7 +118,7 @@ class Produto {
         $stmt->execute($params);     
     }
 
-    // Métodos adicionais de banco de dados
+    # Métodos adicionais de banco de dados
     public static function codigoBarrasExiste(PDO $pdo, $codigo, $id) {
         $sql = "SELECT COUNT(*) FROM produtos WHERE codigobarras = :codigo AND id != :id";
         $params = [

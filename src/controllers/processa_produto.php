@@ -2,9 +2,10 @@
 require_once __DIR__ . '/../../core/smarty_init.php';
 require_once __DIR__ . '/../../src/models/Produto.php';
 
-$erros = [];
+$erros = []; # Array pra armazenar os erros de validação
 $pdo = require_once __DIR__ . '/../../config/connection.php';
 
+# Armazena os campos enviados no POST
 $id = $_POST['id'] ?? null;
 $nome = trim($_POST["nome"] ?? "");
 $qtd = trim($_POST["qtd"] ?? "");
@@ -13,17 +14,17 @@ $custo = str_replace(',', '.', $_POST['custo']);
 $descricao = trim($_POST["descricao"] ?? "");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Valida a quantidade em estoque
+    # Valida a quantidade em estoque
     if ($qtd === "" || !ctype_digit($qtd)) {
         $erros[] = "A quantidade em estoque deve ser um número inteiro.";
     }
 
-    // Valida o custo de reposição
+    # Valida o custo de reposição
     if ($custo === "" || !is_numeric($custo)) {
         $erros[] = "Informe um custo de reposição válido.";
     }
 
-    // Valida o código de barras
+    # Valida o código de barras
     if ($codigo === "" || strlen($codigo) < 8 || strlen($codigo) > 14) {
         $erros[] = "O código de barras precisa ter entre 8 e 14 caracteres.";
     }
@@ -31,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $erros[] = "Já existe um produto cadastrado com esse código de barras.";
     }
 
-    // Se houver algum erro, retorna pro form
+    # Se houver algum erro, retorna pro form
     if (!empty($erros)) {        
         $produto = new Produto($id, $pdo, $nome, $qtd, $codigo, $custo, $descricao);
 
@@ -41,13 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $smarty->assign('titulo', 'Novo Produto');
         $smarty->display('cadastro.tpl');        
         exit;
-    // Caso contrário, salva o novo produto    
+    # Caso contrário, salva o novo produto    
     } else {
         try {
             $novo_produto = new Produto($id, $pdo, $nome, $qtd, $codigo, $custo, $descricao);
             $novo_produto->salvar();
             
-            // Volta pra index pra recarregar a lista de produtos
+            # Volta pra index pra recarregar a lista de produtos
             header("Location: ../../public/index.php");
             exit;  
         } catch (PDOException $e) {

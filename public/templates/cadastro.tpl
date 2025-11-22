@@ -29,7 +29,7 @@
                 <form action="/techstorage/src/controllers/processa_produto.php" method="post">      
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" id="nome" name="nome" class="form-control" value="{$produto->getNome()}" required>
+                        <input type="text" id="nome" name="nome" class="form-control" maxlength="100" value="{$produto->getNome()}" required>
                     </div>
                 
                     <div class="row">
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="codigo" class="form-label">Código de Barras</label>
-                            <input type="text" id="codigo" name="codigo" class="form-control" value="{$produto->getCodigoBarras()}">
+                            <input type="text" id="codigo" name="codigo" class="form-control" maxlength="14" value="{$produto->getCodigoBarras()}">
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="codigo" class="form-label">Custo de Reposição</label>

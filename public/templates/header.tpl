@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light p-4 justify-content-center">        
+        <nav class="navbar navbar-expand-lg p-4 justify-content-center">        
             <a href="/techstorage/public/index.php">
                 <img src="/techstorage/public/img/logo-horizontal.png" alt="TechStorage" width="300">
             </a>   

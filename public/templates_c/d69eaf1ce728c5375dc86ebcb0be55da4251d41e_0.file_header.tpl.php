@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-22 18:35:01
+/* Smarty version 5.7.0, created on 2025-11-22 19:01:35
   from 'file:header.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_6921f4459f0667_87667003',
+  'unifunc' => 'content_6921fa7ff2b554_67960156',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd69eaf1ce728c5375dc86ebcb0be55da4251d41e' => 
     array (
       0 => 'header.tpl',
-      1 => 1763832898,
+      1 => 1763834491,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_6921f4459f0667_87667003 (\Smarty\Template $_smarty_tpl) {
+function content_6921fa7ff2b554_67960156 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\techstorage\\public\\templates';
 ?><!DOCTYPE html>
 <html lang="pt-br">
@@ -34,7 +34,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\techstorage\\public\\templates';
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light p-4 justify-content-center">        
+        <nav class="navbar navbar-expand-lg p-4 justify-content-center">        
             <a href="/techstorage/public/index.php">
                 <img src="/techstorage/public/img/logo-horizontal.png" alt="TechStorage" width="300">
             </a>   

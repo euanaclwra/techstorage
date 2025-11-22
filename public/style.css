@@ -6,9 +6,7 @@
 
 body {
     font-family: "Montserrat";
-    color: #1b1b1b;
-    background: #F2F2F2;
-    background: linear-gradient(336deg,rgba(242, 242, 242, 1) 0%, rgba(255, 255, 255, 1) 100%);    
+    color: #1b1b1b;  
 }
 
 hr {
@@ -114,7 +112,12 @@ label {
 .table-button {
     border: none;
     background-color: transparent;
-    cursor: pointer;    
+    cursor: pointer;   
+    transition: all 0.1s ease-in; 
+}
+
+.table-button:hover {
+    transform: scale(1.2);
 }
 
 .table-button:focus {
