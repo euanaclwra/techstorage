@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-22 16:41:37
+/* Smarty version 5.7.0, created on 2025-11-22 18:55:13
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_6921d9b1c94a74_92208610',
+  'unifunc' => 'content_6921f9018e81d2_68391716',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5857ec153d7a51d8d9db8a56a2d48cafd5efd8f1' => 
     array (
       0 => 'index.tpl',
-      1 => 1763826092,
+      1 => 1763834104,
       2 => 'file',
     ),
   ),
@@ -21,21 +21,35 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ))) {
-function content_6921d9b1c94a74_92208610 (\Smarty\Template $_smarty_tpl) {
+function content_6921f9018e81d2_68391716 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\techstorage\\public\\templates';
 $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
 
 <section class="main">
-    <div class="box">
-        <h1 class="page-title">
-            Estoque
-        </h1>
-        <a href="cadastro.php">
-            <button class="btn-blue">
-                + Novo Produto
-            </button>            
-        </a>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="box">
+            <h1 class="page-title">
+                Estoque
+            </h1>
+            <a href="cadastro.php">
+                <button class="btn-blue">
+                    + Novo Produto
+                </button>            
+            </a>
+        </div>
+        <div class="d-flex align-items-center">
+            <?php if ($_smarty_tpl->getValue('temEstoqueBaixo')) {?>
+                <div class="text-danger text-right small">
+                    <strong>Atenção!</strong>
+                    <br>
+                    Existem produtos com<br>baixa quantidade em estoque.
+                </div>
+                <div class="ml-3">
+                    <img src="img/alerta.png"></img>
+                </div>
+            <?php }?>            
+        </div>        
     </div>
 
     <br>
@@ -67,42 +81,82 @@ $foreach0DoElse = true;
 foreach ($_from ?? [] as $_smarty_tpl->getVariable('produto')->value) {
 $foreach0DoElse = false;
 ?>
-                    <tr>
-                        <td>
-                            <?php echo $_smarty_tpl->getValue('produto')->getCodigoBarras();?>
+                    <?php if ($_smarty_tpl->getValue('produto')->getQtdEstoque() < 3) {?>
+                        <tr class="text-danger">
+                            <td>
+                                <?php echo $_smarty_tpl->getValue('produto')->getCodigoBarras();?>
 
-                        </td>
-                        <td>
-                            <?php echo $_smarty_tpl->getValue('produto')->getNome();?>
+                            </td>
+                            <td>
+                                <?php echo $_smarty_tpl->getValue('produto')->getNome();?>
 
-                        </td>
-                        <td>
-                            <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('number_format')($_smarty_tpl->getValue('produto')->getCustoReposicao(),2,',','.');?>
+                            </td>
+                            <td>
+                                <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('number_format')($_smarty_tpl->getValue('produto')->getCustoReposicao(),2,',','.');?>
 
-                        </td>
-                        <td>
-                            <?php echo $_smarty_tpl->getValue('produto')->getQtdEstoque();?>
+                            </td>
+                            <td>
+                                <?php echo $_smarty_tpl->getValue('produto')->getQtdEstoque();?>
 
-                        </td>
-                        <td class="text-center">
-                            <form action="../src/controllers/edita_produto.php" method="GET">
-                                <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+                                <img src="img/alerta.png" class="table-icon-alert"></img>
+                            </td>
+                            <td class="text-center">
+                                <form action="../src/controllers/edita_produto.php" method="GET">
+                                    <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
 ">
-                                <button class="table-button" type="submit">
-                                    <img src="img/editar.png">
-                                </button>
-                            </form>
-                        </td>
-                        <td class="text-center">
-                            <form action="../src/controllers/exclui_produto.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
-                                <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+                                    <button class="table-button" type="submit">
+                                        <img src="img/editar.png">
+                                    </button>
+                                </form>
+                            </td>
+                            <td class="text-center">
+                                <form action="../src/controllers/exclui_produto.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                    <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
 ">
-                                <button class="table-button" type="submit">
-                                    <img src="img/excluir.png">
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
+                                    <button class="table-button" type="submit">
+                                        <img src="img/excluir.png">
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } else { ?>
+                        <tr>
+                            <td>
+                                <?php echo $_smarty_tpl->getValue('produto')->getCodigoBarras();?>
+
+                            </td>
+                            <td>
+                                <?php echo $_smarty_tpl->getValue('produto')->getNome();?>
+
+                            </td>
+                            <td>
+                                <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('number_format')($_smarty_tpl->getValue('produto')->getCustoReposicao(),2,',','.');?>
+
+                            </td>
+                            <td>
+                                <?php echo $_smarty_tpl->getValue('produto')->getQtdEstoque();?>
+
+                            </td>
+                            <td class="text-center">
+                                <form action="../src/controllers/edita_produto.php" method="GET">
+                                    <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+">
+                                    <button class="table-button" type="submit">
+                                        <img src="img/editar.png">
+                                    </button>
+                                </form>
+                            </td>
+                            <td class="text-center">
+                                <form action="../src/controllers/exclui_produto.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                    <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+">
+                                    <button class="table-button" type="submit">
+                                        <img src="img/excluir.png">
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>                    
+                    <?php }?>                    
                 <?php
 }
 $_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>

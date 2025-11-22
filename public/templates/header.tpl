@@ -10,27 +10,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light p-4">        
-            <div class="container-fluid">
-                <a href="/techstorage/public/index.php">
-                    <img src="/techstorage/public/img/logo-horizontal.png" alt="TechStorage" width="300">
-                </a>  
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-end" id="menuNav">          
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/techstorage/public/index.php">estoque</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/techstorage/public/config.php">configurações</a>
-                        </li>
-                    </ul> 
-                </div>
-            </div>   
+        <nav class="navbar navbar-expand-lg bg-light p-4 justify-content-center">        
+            <a href="/techstorage/public/index.php">
+                <img src="/techstorage/public/img/logo-horizontal.png" alt="TechStorage" width="300">
+            </a>   
         </nav>
     </header> 
     <hr> 

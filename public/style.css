@@ -124,3 +124,8 @@ label {
 .table-button img {
     width: 20px;
 }
+
+.table-icon-alert {
+    width: 20px;
+    margin-bottom: 4px;
+}
