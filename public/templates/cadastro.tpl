@@ -13,10 +13,20 @@
 
     <br>
 
+    {if $erros}
+        <div class="alert alert-danger">
+            <ul>
+                {foreach $erros as $erro}
+                    <li>{$erro}</li>
+                {/foreach}
+            </ul>
+        </div>
+    {/if}
+
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  
-                <form action="../src/controllers/processa_produto.php" method="post">      
+                <form action="/techstorage/src/controllers/processa_produto.php" method="post">      
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" id="nome" name="nome" class="form-control" value="{$produto.nome}" required>

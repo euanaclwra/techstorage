@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             'descricao' => $descricao,
         ]);
 
+        $smarty->assign('titulo', 'Novo Produto');
         $smarty->display('cadastro.tpl');        
         exit;
     // Caso contrário, salva o novo produto    
@@ -48,7 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $novo_produto = new Produto(null, $pdo, $nome, $qtd, $codigo, $custo, $descricao);
             $novo_produto->salvar();
             
-            $smarty->display('index.tpl'); 
+            // Volta pra index pra recarregar a lista de produtos
+            header("Location: ../../public/index.php");
+            exit;  
         } catch (PDOException $e) {
             echo 'ERRO: ' . $e->getMessage();
         }

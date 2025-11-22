@@ -34,38 +34,48 @@
             </tr>
         </thead>
         <tbody>
-            {foreach $produtos as $produto}
+            {if $produtos|@count > 0}
+                {foreach $produtos as $produto}
+                    <tr>
+                        <td>
+                            {$produto->getCodigoBarras()}
+                        </td>
+                        <td>
+                            {$produto->getNome()}
+                        </td>
+                        <td>
+                            {number_format($produto->getCustoReposicao(), 2, ',', '.')}
+                        </td>
+                        <td>
+                            {$produto->getQtdEstoque()}
+                        </td>
+                        <td class="text-center">
+                            <form action="../src/controllers/edita_produto.php" method="POST">
+                                <input type="hidden" name="id" value="{$produto->getId()}">
+                                <button class="table-button" type="submit">
+                                    <img src="img/editar.png">
+                                </button>
+                            </form>
+                        </td>
+                        <td class="text-center">
+                            <form action="../src/controllers/exclui_produto.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                <input type="hidden" name="id" value="{$produto->getId()}">
+                                <button class="table-button" type="submit">
+                                    <img src="img/excluir.png">
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {/foreach}
+            {else}
                 <tr>
-                    <td>
-                        {$produto->getCodigoBarras()}
-                    </td>
-                    <td>
-                        {$produto->getNome()}
-                    </td>
-                    <td>
-                        {number_format($produto->getCustoReposicao(), 2, ',', '.')}
-                    </td>
-                    <td>
-                        {$produto->getQtdEstoque()}
-                    </td>
-                    <td class="text-center">
-                        <form action="../src/controllers/edita_produto.php" method="POST">
-                            <input type="hidden" name="id" value="{$produto->getId()}">
-                            <button class="table-button" type="submit">
-                                <img src="img/editar.png">
-                            </button>
-                        </form>
-                    </td>
-                    <td class="text-center">
-                        <form action="../src/controllers/exclui_produto.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
-                            <input type="hidden" name="id" value="{$produto->getId()}">
-                            <button class="table-button" type="submit">
-                                <img src="img/excluir.png">
-                            </button>
-                        </form>
+                    <td colspan="6" class="text-center">
+                        <h3>
+                            Você ainda não cadastrou nenhum produto :(
+                        </h3>
                     </td>
                 </tr>
-            {/foreach}
+            {/if}
         </tbody>            
     </table>
 </section>
