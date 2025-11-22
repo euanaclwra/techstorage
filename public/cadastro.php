@@ -3,14 +3,10 @@ require_once __DIR__ . '/../smarty/libs/Smarty.class.php';
 
 $smarty = new Smarty\Smarty();
 
+$produto = new Produto(null, $pdo, '', '', '', '', '');
+
 $smarty->assign('titulo', 'Novo Produto');
-$smarty->assign('produto', [
-    'nome' => '',
-    'qtd' => '',
-    'codigo' => '',
-    'custo' => '',
-    'descricao' => '',
-]);
+$smarty->assign('produto', $produto);
 
 $smarty->display('cadastro.tpl');
 ?>

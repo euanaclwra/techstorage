@@ -29,27 +29,27 @@
                 <form action="/techstorage/src/controllers/processa_produto.php" method="post">      
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" id="nome" name="nome" class="form-control" value="{$produto.nome}" required>
+                        <input type="text" id="nome" name="nome" class="form-control" value="{$produto->getNome()}" required>
                     </div>
                 
                     <div class="row">
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="qtd" class="form-label">Quantidade em Estoque</label>
-                            <input type="number" id="qtd" name="qtd" class="form-control" value="{$produto.qtd}">
+                            <input type="number" id="qtd" name="qtd" class="form-control" value="{$produto->getQtdEstoque()}">
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="codigo" class="form-label">Código de Barras</label>
-                            <input type="text" id="codigo" name="codigo" class="form-control" value="{$produto.codigo}">
+                            <input type="text" id="codigo" name="codigo" class="form-control" value="{$produto->getCodigoBarras()}">
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="codigo" class="form-label">Custo de Reposição</label>
-                            <input type="text" id="custo" name="custo" class="form-control" value="{$produto.custo}">
+                            <input type="text" id="custo" name="custo" class="form-control" value="{$produto->getCustoReposicao()}">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <textarea name="descricao" id="descricao" name="descricao" class="form-control" value="{$produto.descricao}"></textarea>
+                        <textarea name="descricao" id="descricao" name="descricao" class="form-control" value="{$produto->getDescricao()}"></textarea>
                     </div>
 
                     <button class="btn-blue" type="submit">

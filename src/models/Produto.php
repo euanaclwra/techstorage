@@ -124,7 +124,7 @@ class Produto {
                 $pdo, 
                 $dados['nome'],
                 $dados['qtdestoque'],
-                $dados['codigobarras'],
+                $dados['codigobarras'],                                
                 $dados['custoreposicao'],
                 $dados['descricao']
             );
@@ -142,6 +142,7 @@ class Produto {
         $stmt->execute($params);     
     }
 
+    // Métodos adicionais de banco de dados
     public static function codigoBarrasExiste(PDO $pdo, $codigo) {
         $sql = "SELECT COUNT(*) FROM produtos WHERE codigobarras = :codigo";
         $params = [
@@ -151,6 +152,26 @@ class Produto {
         $stmt->execute($params);
 
         return $stmt->fetchColumn() > 0;
+    }
+
+    public static function getProdutoById(PDO $pdo, $id) {
+        $sql = "SELECT * FROM produtos WHERE id = :id LIMIT 1";
+        $params = [
+            'id' => $id 
+        ];
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new Produto(
+            $dados['id'],
+            $pdo,
+            $dados['nome'],
+            $dados['qtdestoque'], 
+            $dados['codigobarras'],                       
+            $dados['custoreposicao'],
+            $dados['descricao']
+        );        
     }
 }
 ?>

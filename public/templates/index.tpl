@@ -50,7 +50,7 @@
                             {$produto->getQtdEstoque()}
                         </td>
                         <td class="text-center">
-                            <form action="../src/controllers/edita_produto.php" method="POST">
+                            <form action="../src/controllers/edita_produto.php" method="GET">
                                 <input type="hidden" name="id" value="{$produto->getId()}">
                                 <button class="table-button" type="submit">
                                     <img src="img/editar.png">
