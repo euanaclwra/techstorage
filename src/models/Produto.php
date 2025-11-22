@@ -67,7 +67,7 @@ class Produto {
     }
 
     // Construtor
-    public function __construct($id = null, $pdo, $nome, $qtdEstoque, $codigoBarras, $custoReposicao, $descricao) {
+    public function __construct($id = null, $pdo = null, $nome = null, $qtdEstoque = null, $codigoBarras = null, $custoReposicao = null, $descricao = null) {
         $this->id = $id;
         $this->pdo = $pdo;
         $this->nome = $nome;
@@ -90,9 +90,11 @@ class Produto {
                 'descricao' => $this->getDescricao(),
                 'id' => $this->getId()
             ];
-            $this->pdo->prepare($sql)->execute($params);
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+            
             return $this->id;  
-        // Caso contrário, ele é inserido               
+        // Caso contrário, ele é inserido              
         } else {
             $sql = "INSERT INTO produtos (nome, codigobarras, qtdestoque, custoreposicao, descricao) VALUES (:nome, :codigobarras, :qtdestoque, :custoreposicao, :descricao)";
             $params = [
@@ -102,7 +104,8 @@ class Produto {
                 'custoreposicao' => $this->getCustoReposicao(),
                 'descricao' => $this->getDescricao()
             ];
-            $this->pdo->prepare($sql)->execute($params);
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
 
             $this->id = $this->pdo->lastInsertId();
             return $this->id;
@@ -130,5 +133,13 @@ class Produto {
         return $listaProdutos;   
     }
 
+    public function excluir() {
+        $sql = "DELETE FROM produtos WHERE id = :id";
+        $params = [
+            'id' => $this->getId()
+        ];
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);     
+    }
 }
 ?>

@@ -110,3 +110,17 @@ label {
     font-size: 0.7rem;
     color: #1993de;
 }
+
+.table-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;    
+}
+
+.table-button:focus {
+    outline: none;
+}
+
+.table-button img {
+    width: 20px;
+}

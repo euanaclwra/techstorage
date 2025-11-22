@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-22 01:55:42
+/* Smarty version 5.7.0, created on 2025-11-22 15:15:37
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_69210a0eba6533_56925934',
+  'unifunc' => 'content_6921c5895f9e13_02802981',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5857ec153d7a51d8d9db8a56a2d48cafd5efd8f1' => 
     array (
       0 => 'index.tpl',
-      1 => 1763772938,
+      1 => 1763820932,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ))) {
-function content_69210a0eba6533_56925934 (\Smarty\Template $_smarty_tpl) {
+function content_6921c5895f9e13_02802981 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\techstorage\\public\\templates';
 $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
@@ -55,6 +55,8 @@ $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_sma
                 <th class="table-header">
                     Qtd.
                 </th>
+                <th class="table-header" width="5%"></th>
+                <th class="table-header" width="5%"></th>
             </tr>
         </thead>
         <tbody>
@@ -65,14 +67,40 @@ foreach ($_from ?? [] as $_smarty_tpl->getVariable('produto')->value) {
 $foreach0DoElse = false;
 ?>
                 <tr>
-                    <td><?php echo $_smarty_tpl->getValue('produto')->getCodigoBarras();?>
-</td>
-                    <td><?php echo $_smarty_tpl->getValue('produto')->getNome();?>
-</td>
-                    <td><?php echo $_smarty_tpl->getSmarty()->getModifierCallback('number_format')($_smarty_tpl->getValue('produto')->getCustoReposicao(),2,',','.');?>
-</td>
-                    <td><?php echo $_smarty_tpl->getValue('produto')->getQtdEstoque();?>
-</td>
+                    <td>
+                        <?php echo $_smarty_tpl->getValue('produto')->getCodigoBarras();?>
+
+                    </td>
+                    <td>
+                        <?php echo $_smarty_tpl->getValue('produto')->getNome();?>
+
+                    </td>
+                    <td>
+                        <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('number_format')($_smarty_tpl->getValue('produto')->getCustoReposicao(),2,',','.');?>
+
+                    </td>
+                    <td>
+                        <?php echo $_smarty_tpl->getValue('produto')->getQtdEstoque();?>
+
+                    </td>
+                    <td class="text-center">
+                        <form action="../src/controllers/edita_produto.php" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+">
+                            <button class="table-button" type="submit">
+                                <img src="img/editar.png">
+                            </button>
+                        </form>
+                    </td>
+                    <td class="text-center">
+                        <form action="../src/controllers/exclui_produto.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                            <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+">
+                            <button class="table-button" type="submit">
+                                <img src="img/excluir.png">
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             <?php
 }
