@@ -52,8 +52,10 @@
                         <textarea name="descricao" id="descricao" name="descricao" class="form-control" value="{$produto->getDescricao()}"></textarea>
                     </div>
 
+                    <input type="hidden" name="id" value="{$produto->getId()}">
+
                     <button class="btn-blue" type="submit">
-                        Cadastrar
+                        Salvar
                     </button>
                 </form>
             </div>

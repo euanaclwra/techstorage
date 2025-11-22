@@ -143,10 +143,11 @@ class Produto {
     }
 
     // Métodos adicionais de banco de dados
-    public static function codigoBarrasExiste(PDO $pdo, $codigo) {
-        $sql = "SELECT COUNT(*) FROM produtos WHERE codigobarras = :codigo";
+    public static function codigoBarrasExiste(PDO $pdo, $codigo, $id) {
+        $sql = "SELECT COUNT(*) FROM produtos WHERE codigobarras = :codigo AND id != :id";
         $params = [
-            'codigo' => $codigo
+            'codigo' => $codigo,
+            'id' => $id
         ];
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);

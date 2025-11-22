@@ -5,6 +5,7 @@ require_once __DIR__ . '/../../src/models/Produto.php';
 $erros = [];
 $pdo = require_once __DIR__ . '/../../config/connection.php';
 
+$id = $_POST['id'] ?? null;
 $nome = trim($_POST["nome"] ?? "");
 $qtd = trim($_POST["qtd"] ?? "");
 $codigo = trim($_POST["codigo"] ?? "");
@@ -26,30 +27,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($codigo === "" || strlen($codigo) < 8 || strlen($codigo) > 14) {
         $erros[] = "O código de barras precisa ter entre 8 e 14 caracteres.";
     }
-    if (Produto::codigoBarrasExiste($pdo, $codigo)) {
+    if (Produto::codigoBarrasExiste($pdo, $codigo, $id)) {
         $erros[] = "Já existe um produto cadastrado com esse código de barras.";
     }
 
     // Se houver algum erro, retorna pro form
-    if (!empty($erros)) {
+    if (!empty($erros)) {        
+        $produto = new Produto($id, $pdo, $nome, $qtd, $codigo, $custo, $descricao);
+
         $smarty->assign('erros', $erros);
         $smarty->assign('old', $_POST);
-
-        $smarty->assign('produto', [
-            'nome' => $nome,
-            'qtd' => $qtd,
-            'codigo' => $codigo,
-            'custo' => $custo,
-            'descricao' => $descricao,
-        ]);
-
+        $smarty->assign('produto', $produto);
         $smarty->assign('titulo', 'Novo Produto');
         $smarty->display('cadastro.tpl');        
         exit;
     // Caso contrário, salva o novo produto    
     } else {
         try {
-            $novo_produto = new Produto(null, $pdo, $nome, $qtd, $codigo, $custo, $descricao);
+            $novo_produto = new Produto($id, $pdo, $nome, $qtd, $codigo, $custo, $descricao);
             $novo_produto->salvar();
             
             // Volta pra index pra recarregar a lista de produtos

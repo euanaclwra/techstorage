@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-22 17:24:07
+/* Smarty version 5.7.0, created on 2025-11-22 18:10:24
   from 'file:cadastro.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_6921e3a7966347_73148577',
+  'unifunc' => 'content_6921ee80495050_03815841',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1359e21467fc424c21b467e696f7aff67d0a4fc5' => 
     array (
       0 => 'cadastro.tpl',
-      1 => 1763828631,
+      1 => 1763830916,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ))) {
-function content_6921e3a7966347_73148577 (\Smarty\Template $_smarty_tpl) {
+function content_6921ee80495050_03815841 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\techstorage\\public\\templates';
 $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
@@ -91,6 +91,9 @@ $_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
                         <textarea name="descricao" id="descricao" name="descricao" class="form-control" value="<?php echo $_smarty_tpl->getValue('produto')->getDescricao();?>
 "></textarea>
                     </div>
+
+                    <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getValue('produto')->getId();?>
+">
 
                     <button class="btn-blue" type="submit">
                         Cadastrar

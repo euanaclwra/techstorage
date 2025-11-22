@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light p-4">        
             <div class="container-fluid">
-                <a href="index.php">
+                <a href="/techstorage/public/index.php">
                     <img src="/techstorage/public/img/logo-horizontal.png" alt="TechStorage" width="300">
                 </a>  
 
