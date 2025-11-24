@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/../core/smarty_init.php'; 
-require_once '../src/models/Produto.php';
+require_once '../config/paths.php';
+require_once CORE_PATH . '\smarty_init.php'; 
+require_once SRC_PATH . '\models\Produto.php';
 
-$pdo = require_once '../config/connection.php';
+$pdo = require_once CONFIG_PATH . '\connection.php';
 
 $listaProdutos = Produto::buscar($pdo); # Armazena todos os produtos cadastrados
 $temEstoqueBaixo = false;

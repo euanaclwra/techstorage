@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/../../core/smarty_init.php';
-require_once __DIR__ . '/../../src/models/Produto.php';
+require_once __DIR__ . '\..\..\config/paths.php';
+require_once CORE_PATH . '\smarty_init.php';
+require_once SRC_PATH . '\models\Produto.php';
 
 $erros = []; # Array pra armazenar os erros de validação
-$pdo = require_once __DIR__ . '/../../config/connection.php';
+$pdo = require_once CONFIG_PATH . '\connection.php';
 
 # Armazena os campos enviados no POST
 $id = $_POST['id'] ?? null;
