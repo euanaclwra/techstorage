@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-24 16:49:50
+/* Smarty version 5.7.0, created on 2025-11-24 19:33:59
   from 'file:install.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_69247e9ed81cc6_84889823',
+  'unifunc' => 'content_6924a517b5c848_42855122',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '311b658835e8dab296fdaacf8b98775166540718' => 
     array (
       0 => 'install.tpl',
-      1 => 1763999388,
+      1 => 1764009238,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ))) {
-function content_69247e9ed81cc6_84889823 (\Smarty\Template $_smarty_tpl) {
+function content_6924a517b5c848_42855122 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\work\\www\\techstorage\\public\\templates';
 $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
@@ -39,14 +39,13 @@ $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_sma
 
     <br>
 
-    <?php if ($_smarty_tpl->getValue('credencialValida') && $_smarty_tpl->getValue('credencialValida') == false) {?>
+    <?php if ($_smarty_tpl->getValue('erro')) {?>
         <div class="alert alert-danger">
-            <p>
-                Credenciais inválidas.
-            </p>
+            <?php echo $_smarty_tpl->getValue('erro');?>
+ 
         </div>
-    <?php }?>    
-
+    <?php }?>
+  
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  

@@ -13,14 +13,12 @@
 
     <br>
 
-    {if $credencialValida && $credencialValida eq false}
+    {if $erro}
         <div class="alert alert-danger">
-            <p>
-                Credenciais inválidas.
-            </p>
+            {$erro} 
         </div>
-    {/if}    
-
+    {/if}
+  
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  
