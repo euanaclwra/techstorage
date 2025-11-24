@@ -22,7 +22,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  
-                <form action="/techstorage/install/install.php" method="post" id="formConexao">      
+                <form action="/techstorage/install/install.php" method="post" onsubmit="desabilitaBotaoSubmit(this, 'Conectando...')">      
                     <div class="row">
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="qtd" class="form-label">Host</label>
@@ -50,7 +50,7 @@
                         </div>
                     </div>             
 
-                    <button id="btnConectar" class="btn-blue" type="submit">
+                    <button class="btn-blue" type="submit">
                         Conectar
                     </button>
                 </form>

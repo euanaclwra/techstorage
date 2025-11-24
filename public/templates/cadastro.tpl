@@ -26,7 +26,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  
-                <form action="/techstorage/src/controllers/processa_produto.php" method="post" id="formProduto">      
+                <form action="/techstorage/src/controllers/processa_produto.php" method="post" onsubmit="desabilitaBotaoSubmit(this, 'Salvando...')">      
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" id="nome" name="nome" class="form-control" maxlength="100" value="{$produto->getNome()}" required>
@@ -54,7 +54,7 @@
 
                     <input type="hidden" name="id" value="{$produto->getId()}">
 
-                    <button id="btnSalvar" class="btn-blue" type="submit">
+                    <button type="submit" class="btn-blue btn-disabled">
                         Salvar
                     </button>
                 </form>

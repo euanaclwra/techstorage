@@ -1,18 +1,5 @@
-const formProduto = document.getElementById('formProduto');
-const formConexao = document.getElementById('formConexao');
-
-if (formProduto) {
-    formProduto.addEventListener('submit', function() {
-        const btn = document.getElementById('btnSalvar');
-        btn.disabled = true;
-        btn.innerText = "Salvando...";
-    });    
-}
-
-if (formConexao) {
-    formConexao.addEventListener('submit', function() {
-        const btn = document.getElementById('btnConectar');
-        btn.disabled = true;
-        btn.innerText = "Conectando...";
-    });        
+function desabilitaBotaoSubmit(form, texto) {
+    const btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.innerText = texto;
 }
