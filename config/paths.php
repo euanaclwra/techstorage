@@ -12,4 +12,5 @@ define('CORE_PATH', ROOT_PATH . '\core');
 define('PUBLIC_PATH', ROOT_PATH . '\public');
 define('SMARTY_PATH', ROOT_PATH . '\smarty');
 define('SRC_PATH', ROOT_PATH . '\src');
+define('INSTALL_PATH', ROOT_PATH . '\install');
 ?>

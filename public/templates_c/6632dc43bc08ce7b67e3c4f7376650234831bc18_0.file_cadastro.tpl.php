@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-24 13:26:46
+/* Smarty version 5.7.0, created on 2025-11-24 17:07:09
   from 'file:cadastro.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_69244f060fcfb1_52585614',
+  'unifunc' => 'content_692482adc3cb04_17006596',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6632dc43bc08ce7b67e3c4f7376650234831bc18' => 
     array (
       0 => 'cadastro.tpl',
-      1 => 1763987195,
+      1 => 1764000412,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ))) {
-function content_69244f060fcfb1_52585614 (\Smarty\Template $_smarty_tpl) {
+function content_692482adc3cb04_17006596 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\work\\www\\techstorage\\public\\templates';
 $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
