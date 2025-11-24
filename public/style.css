@@ -60,6 +60,13 @@ hr {
     color: #1b3f99;
 }
 
+.btn-blue:disabled, .btn-blue:disabled:hover {
+    background-color: gainsboro;   
+    cursor: not-allowed;
+    border: solid transparent 2px;
+    color: white;
+}
+
 .btn-blue:active, .btn-blue:focus {
     outline: none;
 }

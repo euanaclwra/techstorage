@@ -5,7 +5,7 @@ require_once 'Smarty.class.php';
 $smarty = new Smarty\Smarty();
 
 # Define os diretórios de salvamento
-$smarty->setTemplateDir('\xampp\htdocs\techstorage\public\templates');
-$smarty->setCompileDir('\xampp\htdocs\techstorage\public\templates_c');
-$smarty->setCacheDir('\xampp\htdocs\techstorage\public\templates_cache');
+$smarty->setTemplateDir('\work\www\techstorage\public\templates');
+$smarty->setCompileDir('\work\www\techstorage\public\templates_c');
+$smarty->setCacheDir('\work\www\techstorage\public\templates_cache');
 ?>

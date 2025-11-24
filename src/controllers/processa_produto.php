@@ -15,7 +15,7 @@ $descricao = trim($_POST["descricao"] ?? "");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     # Valida a quantidade em estoque
-    if ($qtd === "" || !ctype_digit($qtd)) {
+    if ($qtd === "" || !is_numeric($qtd)) {
         $erros[] = "A quantidade em estoque deve ser um número inteiro.";
     }
 

@@ -1,5 +1,5 @@
 <?php
-$ini = '\xampp\htdocs\techstorage\config\config.ini';
+$ini = __DIR__ . '/../config/config.ini';
 
 # Verifica se o arquivo INI existe
 if (!file_exists($ini)) {

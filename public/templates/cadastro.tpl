@@ -26,7 +26,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  
-                <form action="/techstorage/src/controllers/processa_produto.php" method="post">      
+                <form action="/techstorage/src/controllers/processa_produto.php" method="post" id="formProduto">      
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" id="nome" name="nome" class="form-control" maxlength="100" value="{$produto->getNome()}" required>
@@ -49,12 +49,12 @@
 
                     <div class="mb-3">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <textarea name="descricao" id="descricao" name="descricao" class="form-control" value="{$produto->getDescricao()}"></textarea>
+                        <textarea name="descricao" id="descricao" name="descricao" class="form-control">{$produto->getDescricao()}</textarea>
                     </div>
 
                     <input type="hidden" name="id" value="{$produto->getId()}">
 
-                    <button class="btn-blue" type="submit">
+                    <button id="btnSalvar" class="btn-blue" type="submit">
                         Salvar
                     </button>
                 </form>
@@ -62,3 +62,5 @@
         </div>
     </div>
 </section>
+
+<script src="/techstorage/public/script.js"></script>
