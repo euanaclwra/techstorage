@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2025-11-24 19:49:57
+/* Smarty version 5.7.0, created on 2025-11-24 20:12:19
   from 'file:install.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_6924a8d51dc1b7_83781582',
+  'unifunc' => 'content_6924ae137f21f5_64844488',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '311b658835e8dab296fdaacf8b98775166540718' => 
     array (
       0 => 'install.tpl',
-      1 => 1764010119,
+      1 => 1764010265,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ))) {
-function content_6924a8d51dc1b7_83781582 (\Smarty\Template $_smarty_tpl) {
+function content_6924ae137f21f5_64844488 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\work\\www\\techstorage\\public\\templates';
 $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
@@ -49,7 +49,7 @@ $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_sma
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">  
-                <form action="/techstorage/install/install.php" method="post" id="formConexao" onsubmit="desabilitaBotao(this, 'Conectando...')">      
+                <form action="/techstorage/install/install.php" method="post" onsubmit="desabilitaBotaoSubmit(this, 'Conectando...')">      
                     <div class="row">
                         <div class="col-12 col-sm-4 mb-3">
                             <label for="qtd" class="form-label">Host</label>
@@ -77,7 +77,7 @@ $_smarty_tpl->renderSubTemplate("file:header.tpl", $_smarty_tpl->cache_id, $_sma
                         </div>
                     </div>             
 
-                    <button id="btnConectar" class="btn-blue" type="submit">
+                    <button class="btn-blue" type="submit">
                         Conectar
                     </button>
                 </form>

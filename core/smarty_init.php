@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/paths.php';
+require_once __DIR__ . '\..\config\paths.php';
 require_once SMARTY_PATH . '\libs\Smarty.class.php';
 
 # Cria o objeto global
